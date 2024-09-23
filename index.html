@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting...</title>
+</head>
+<body>
+    <script>
+        function getQueryParams() {
+            const queryString = window.location.search;
+            return queryString;
+        }
+        function redirect() {
+            const params = getQueryParams();
+            const newDomain = 'https://vsetlist.f5.si';
+            window.location.href = `${newDomain}${params}`;
+        }
+        redirect();
+    </script>
+    <p>If you are not redirected automatically, follow this <a href="https://vsetlist.f5.si/">link</a>.</p>
+</body>
+</html>
