@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Redirecting...</title>
 </head>
+
 <body>
     <script>
-        function getQueryParams() {
-            const queryString = window.location.search;
-            return queryString;
-        }
-        function redirect() {
-            const params = getQueryParams();
-            const newDomain = 'https://vsetlist.f5.si';
-            window.location.href = `${newDomain}${params}`;
-        }
-        redirect();
+        const GetParam = parameterName => {
+            const params = new URLSearchParams(location.search);
+            if (parameterName) {
+                return params.get(parameterName);
+            } else {
+                const allParams = {};
+                for (const [key, value] of params.entries()) {
+                    allParams[key] = value;
+                }
+                return allParams;
+            }
+        };
+        const p = GetParam();
+        if (p.ch)
+            location.href = `https://vsetlist.f5.si/ch/${p.ch}`;
+        else
+            location.href = 'https://vsetlist.f5.si/'';
     </script>
     <p>If you are not redirected automatically, follow this <a href="https://vsetlist.f5.si/">link</a>.</p>
 </body>
+
 </html>
