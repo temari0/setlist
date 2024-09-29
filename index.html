@@ -1,27 +1,14 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Redirecting...</title>
 </head>
-
 <body>
     <script>
-        const GetParam = parameterName => {
-            const params = new URLSearchParams(location.search);
-            if (parameterName) {
-                return params.get(parameterName);
-            } else {
-                const allParams = {};
-                for (const [key, value] of params.entries()) {
-                    allParams[key] = value;
-                }
-                return allParams;
-            }
-        };
-        const p = GetParam();
-        if (p.ch)
-            location.href = `https://vsetlist.f5.si/ch/${p.ch}`;
+        const params = new URLSearchParams(location.search);
+        const ch = params.get('ch');
+        if (ch)
+            location.href = `https://vsetlist.f5.si/ch/${ch}`;
         else
             location.href = 'https://vsetlist.f5.si/'';
     </script>
